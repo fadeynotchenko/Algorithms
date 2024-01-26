@@ -24,6 +24,8 @@ func undirectedGraphTest() {
     } else {
         print("nil")
     }
+    
+    print(g.bfs(from: 2))
 }
 
 undirectedGraphTest()

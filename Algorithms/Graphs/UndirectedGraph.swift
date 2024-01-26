@@ -56,4 +56,32 @@ class UndirectedGraph {
         
         return nil
     }
+    
+    //MARK: Обход в ширину из точки А и до конца
+    func bfs(from start: Int) -> [Int] {
+        var visited = Set<Int>()
+        var queue = [Int]()
+        var result = [Int]()
+        
+        visited.insert(start)
+        queue.append(start)
+        
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+            
+            result.append(current)
+            
+            if let edges = arr[current] {
+                for edge in edges.sorted() {
+                    if !visited.contains(edge) {
+                        visited.insert(edge)
+                        
+                        queue.append(edge)
+                    }
+                }
+            }
+        }
+        
+        return result
+    }
 }
