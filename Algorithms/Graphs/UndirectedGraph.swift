@@ -7,23 +7,39 @@
 
 import Foundation
 
+enum GraphType {
+    case undirected, directed
+}
+
 //MARK: Неориентированный граф
 class UndirectedGraph {
-    var arr = [Int: [Int]]()
     
-    func addVertex(vertex: Int) {
-        if arr[vertex] == nil {
-            arr[vertex] = []
-        }
+    var graphType: GraphType
+    
+    var g = [Int: [Int]]()
+    
+    init(graphType: GraphType) {
+        self.graphType = graphType
     }
     
     func addEdge(from source: Int, to dest: Int) {
-        arr[source]?.append(dest)
-        arr[dest]?.append(source)
+        if g[source] == nil {
+            g[source] = []
+        }
+        
+        g[source]?.append(dest)
+        
+        if case .undirected = graphType {
+            if g[dest] == nil {
+                g[dest] = []
+            }
+            
+            g[dest]?.append(source)
+        }
     }
     
     func printGraph() {
-        for (vertex, edge) in arr {
+        for (vertex, edge) in g {
             print("\(vertex) -> \(edge)")
         }
     }
@@ -43,7 +59,7 @@ class UndirectedGraph {
                 return path
             }
             
-            if let edges = arr[current] {
+            if let edges = g[current] {
                 for edge in edges.sorted() {
                     if !visited.contains(edge) {
                         visited.insert(edge)
@@ -71,13 +87,39 @@ class UndirectedGraph {
             
             result.append(current)
             
-            if let edges = arr[current] {
+            if let edges = g[current] {
                 for edge in edges.sorted() {
                     if !visited.contains(edge) {
                         visited.insert(edge)
                         
                         queue.append(edge)
                     }
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    //MARK: Обход в глубину из точки А и до конца
+    func dfs(from start: Int) -> [Int] {
+        var visited = Set<Int>()
+        var stack = [Int]()
+        var result = [Int]()
+        
+        stack.append(start)
+        
+        while !stack.isEmpty {
+            let current = stack.removeLast()
+            
+            guard !visited.contains(current) else { continue }
+            
+            visited.insert(current)
+            result.append(current)
+            
+            if let edges = g[current] {
+                for edge in edges {
+                    stack.append(edge)
                 }
             }
         }

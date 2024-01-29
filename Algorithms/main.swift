@@ -7,25 +7,27 @@
 
 import Foundation
 
-func undirectedGraphTest() {
-    let g = UndirectedGraph()
-    g.addVertex(vertex: 1)
-    g.addVertex(vertex: 2)
-    g.addVertex(vertex: 3)
-    g.addVertex(vertex: 4)
+test()
+
+func test() {
+    let s = Solutions()
     
-    g.addEdge(from: 1, to: 2)
-    g.addEdge(from: 2, to: 3)
-    g.addEdge(from: 2, to: 4)
-    g.addEdge(from: 3, to: 4)
+    let l1 = ListNode(1)
+    let l2 = ListNode(2, l1)
+    let l3 = ListNode(3, l2)
+    let l5 = ListNode(2, l3)
+    let l6 = ListNode(1, l5)
     
-    if let result = g.bfs(from: 4, to: 1) {
-        print(result)
-    } else {
-        print("nil")
-    }
-    
-    print(g.bfs(from: 2))
+    s.isPalindrome(l6)
 }
 
-undirectedGraphTest()
+//MARK: Функции для тестов
+func undirectedGraphTest() {
+    let g = UndirectedGraph(graphType: .directed)
+    
+    g.addEdge(from: 1, to: 2)
+    g.addEdge(from: 1, to: 3)
+    
+    g.printGraph()
+    print(g.dfs(from: 1))
+}
