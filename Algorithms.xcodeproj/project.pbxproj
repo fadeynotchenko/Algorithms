@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		439DEF1E2B63318700BAFBF1 /* UndirectedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439DEF1D2B63318700BAFBF1 /* UndirectedGraph.swift */; };
 		43CC05CB2B67ED5200D1DB71 /* Solutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC05CA2B67ED5200D1DB71 /* Solutions.swift */; };
+		43CC05CE2B6826F500D1DB71 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC05CD2B6826F500D1DB71 /* ListNode.swift */; };
 		43DEE8252B62FF39001DDF29 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DEE8242B62FF39001DDF29 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		439DEF1D2B63318700BAFBF1 /* UndirectedGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectedGraph.swift; sourceTree = "<group>"; };
 		43CC05CA2B67ED5200D1DB71 /* Solutions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solutions.swift; sourceTree = "<group>"; };
+		43CC05CD2B6826F500D1DB71 /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		43DEE8212B62FF39001DDF29 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DEE8242B62FF39001DDF29 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +60,14 @@
 			path = "Yandex Leetcode Solutions";
 			sourceTree = "<group>";
 		};
+		43CC05CC2B6826DC00D1DB71 /* Linked List */ = {
+			isa = PBXGroup;
+			children = (
+				43CC05CD2B6826F500D1DB71 /* ListNode.swift */,
+			);
+			path = "Linked List";
+			sourceTree = "<group>";
+		};
 		43DEE8182B62FF39001DDF29 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 			children = (
 				43DEE8242B62FF39001DDF29 /* main.swift */,
 				43CC05C92B67ED0D00D1DB71 /* Yandex Leetcode Solutions */,
+				43CC05CC2B6826DC00D1DB71 /* Linked List */,
 				439DEF1C2B63316C00BAFBF1 /* Graphs */,
 			);
 			path = Algorithms;
@@ -145,6 +156,7 @@
 				43DEE8252B62FF39001DDF29 /* main.swift in Sources */,
 				439DEF1E2B63318700BAFBF1 /* UndirectedGraph.swift in Sources */,
 				43CC05CB2B67ED5200D1DB71 /* Solutions.swift in Sources */,
+				43CC05CE2B6826F500D1DB71 /* ListNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

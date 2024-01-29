@@ -8,26 +8,37 @@
 import Foundation
 
 
-public class ListNode {
-    public var val: Int
-    public var next: ListNode?
-    public init() { self.val = 0; self.next = nil; }
-    public init(_ val: Int) { self.val = val; self.next = nil; }
-    public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+class Solutions {
     
-    func printNode() {
-        var current: ListNode? = self
+    //MARK: Бинарный поиск в отсортированном массиве со сдвигом k
+    func search(_ nums: [Int], _ target: Int) -> Int {
+        var l = 0
+        var r = nums.count - 1
         
-        while let node = current {
-            print(node.val, terminator: " -> ")
-            current = node.next
+        while l <= r {
+            let m = (l + r) / 2
+            
+            if nums[m] == target { return m }
+            
+            if nums[l] <= nums[m] {
+                if (nums[l]...nums[m]).contains(target) {
+                    r = m - 1
+                } else {
+                    l = m + 1
+                }
+            } else {
+                if (nums[m]...nums[r]).contains(target) {
+                    l = m + 1
+                } else {
+                    r = m - 1
+                }
+            }
         }
         
-        print("nil")
+        return -1
     }
-}
-
-class Solutions {
+    
+    //MARK: Палиндром связный список
     func isPalindrome(_ head: ListNode?) -> Bool {
         var head = head
         var slow = head
